@@ -7,10 +7,10 @@
 
   <pre>repeat: number = {{repeat}};</pre>
 
-  <pre ngNonBindable>&lt;li *ngxRange="let index from 1 to repeat"&gt;Item #{{index}}&lt;/li&gt;</pre>
+  <pre ngNonBindable>&lt;li *ngxRange="let index from 1 to repeat by 2"&gt;Item #{{index}}&lt;/li&gt;</pre>
 
   <ul>
-    <li *ngxRange="let index from 1 to repeat">Item #{{index}}</li>
+    <li *ngxRange="let index from 1 to repeat by 2">Item #{{index}}</li>
   </ul>
 
   <pre ngNonBindable>&lt;ng-template ngxRange let-index [ngxRangeFrom]="0" [ngxRangeTo]="repeat"&gt;
@@ -18,7 +18,7 @@
 &lt;/ng-template&gt;</pre>
 
   <ul>
-    <ng-template ngxRange let-index [ngxRangeFrom]="0" [ngxRangeTo]="repeat">
+    <ng-template ngxRange let-index [ngxRangeFrom]="0" [ngxRangeTo]="repeat" [ngxRangeBy]="1">
       <li>Item #{{index}}</li>
     </ng-template>
   </ul>

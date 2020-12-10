@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  repeat = 3;
+  repeat = 5;
 
   more() {
     this.repeat++;
