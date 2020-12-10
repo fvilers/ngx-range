@@ -1,5 +1,9 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
+export class NgxRangeDirectiveContext {
+  constructor(public index: number) {}
+}
+
 @Directive({
   selector: '[ngxRange]',
 })
@@ -9,7 +13,10 @@ export class NgxRangeDirective {
     this.viewContainer.clear();
 
     for (let i = 0; i < n; i++) {
-      this.viewContainer.createEmbeddedView(this.templateRef);
+      this.viewContainer.createEmbeddedView(
+        this.templateRef,
+        new NgxRangeDirectiveContext(i)
+      );
     }
   }
 

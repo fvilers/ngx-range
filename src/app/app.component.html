@@ -6,7 +6,7 @@
   <h1>Using <code>ngx-range</code></h1>
 
   <ul>
-    <li *ngxRange="repeat">Item #1</li>
+    <li *ngxRange="repeat; index as i">Item #{{i}}</li>
   </ul>
 
   <button mat-mini-fab color="primary" (click)="more()">
