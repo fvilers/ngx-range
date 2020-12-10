@@ -1,27 +1,34 @@
-import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
-
-export class NgxRangeDirectiveContext {
-  constructor(public index: number) {}
-}
+import {
+  Directive,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef,
+} from '@angular/core';
 
 @Directive({
   selector: '[ngxRange]',
 })
-export class NgxRangeDirective {
+export class NgxRangeDirective implements OnChanges {
   @Input()
-  set ngxRange(n: number) {
-    this.viewContainer.clear();
-
-    for (let i = 0; i < n; i++) {
-      this.viewContainer.createEmbeddedView(
-        this.templateRef,
-        new NgxRangeDirectiveContext(i)
-      );
-    }
-  }
+  ngxRange: number = 0;
 
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef
   ) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.ngxRange) {
+      this.viewContainer.clear();
+
+      for (let i = 0; i < changes.ngxRange.currentValue; i++) {
+        this.viewContainer.createEmbeddedView(this.templateRef, {
+          $implicit: i,
+          index: i,
+        });
+      }
+    }
+  }
 }
