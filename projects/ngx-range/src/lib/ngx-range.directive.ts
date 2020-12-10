@@ -14,16 +14,19 @@ export class NgxRangeDirective implements OnChanges {
   @Input()
   ngxRangeFrom: number = 0;
 
+  @Input()
+  ngxRangeTo: number = 0;
+
   constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.ngxRangeFrom) {
+    if (changes.ngxRangeFrom || changes.ngxRangeTo) {
       this.viewContainer.clear();
 
-      for (let i = 0; i < changes.ngxRangeFrom.currentValue; i++) {
+      for (let i = this.ngxRangeFrom; i < this.ngxRangeTo; i++) {
         this.viewContainer.createEmbeddedView(this.templateRef, {
           $implicit: i,
         });

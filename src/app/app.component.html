@@ -5,20 +5,20 @@
 <main>
   <h1>Using <code>ngx-range</code></h1>
 
-  <pre>repeat: number = 3;</pre>
+  <pre>repeat: number = {{repeat}};</pre>
 
-  <pre ngNonBindable>&lt;li *ngxRange="let index from repeat"&gt;Item #{{index}}&lt;/li&gt;</pre>
+  <pre ngNonBindable>&lt;li *ngxRange="let index from 1 to repeat"&gt;Item #{{index}}&lt;/li&gt;</pre>
 
   <ul>
-    <li *ngxRange="let index from repeat">Item #{{index}}</li>
+    <li *ngxRange="let index from 1 to repeat">Item #{{index}}</li>
   </ul>
 
-  <pre ngNonBindable>&lt;ng-template ngxRange let-index [ngxRangeFrom]="repeat"&gt;
+  <pre ngNonBindable>&lt;ng-template ngxRange let-index [ngxRangeFrom]="0" [ngxRangeTo]="repeat"&gt;
   &lt;li *ngxRange="let index from repeat"&gt;Item #{{index}}&lt;/li&gt;
 &lt;/ng-template&gt;</pre>
 
   <ul>
-    <ng-template ngxRange let-index [ngxRangeFrom]="repeat">
+    <ng-template ngxRange let-index [ngxRangeFrom]="0" [ngxRangeTo]="repeat">
       <li>Item #{{index}}</li>
     </ng-template>
   </ul>
