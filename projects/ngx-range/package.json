@@ -1,6 +1,22 @@
 {
   "name": "ngx-range",
   "version": "0.0.0",
+  "description": "An Angular structural directive to enumerate over a range of numbers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fvilers/ngx-range.git"
+  },
+  "keywords": [
+    "angular",
+    "directive",
+    "range"
+  ],
+  "author": "Fabian Vilers <fabian.vilers@dev-one.com> (https://www.dev-one.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fvilers/ngx-range/issues"
+  },
+  "homepage": "https://github.com/fvilers/ngx-range/projects/ngx-range#readme",
   "peerDependencies": {
     "@angular/common": "^11.0.4",
     "@angular/core": "^11.0.4"
