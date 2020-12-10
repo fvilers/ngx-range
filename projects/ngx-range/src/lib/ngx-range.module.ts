@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
+import { NgxRangeDirective } from './ngx-range.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [NgxRangeDirective],
   imports: [],
-  exports: [],
+  exports: [NgxRangeDirective],
 })
 export class NgxRangeModule {}
