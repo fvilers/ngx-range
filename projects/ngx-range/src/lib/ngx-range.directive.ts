@@ -12,7 +12,7 @@ import {
 })
 export class NgxRangeDirective implements OnChanges {
   @Input()
-  ngxRange: number = 0;
+  ngxRangeFrom: number = 0;
 
   constructor(
     private templateRef: TemplateRef<any>,
@@ -20,13 +20,12 @@ export class NgxRangeDirective implements OnChanges {
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.ngxRange) {
+    if (changes.ngxRangeFrom) {
       this.viewContainer.clear();
 
-      for (let i = 0; i < changes.ngxRange.currentValue; i++) {
+      for (let i = 0; i < changes.ngxRangeFrom.currentValue; i++) {
         this.viewContainer.createEmbeddedView(this.templateRef, {
           $implicit: i,
-          index: i,
         });
       }
     }
