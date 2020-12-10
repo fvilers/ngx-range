@@ -15,8 +15,8 @@
   <h2><code>ng-template</code></h2>
 
   <pre ngNonBindable>&lt;ng-template ngxRange let-value [ngxRangeFrom]="0" [ngxRangeTo]="repeat"&gt;
-    &lt;li *ngxRange="let value from repeat"&gt;Item #{{value}}&lt;/li&gt;
-    &lt;/ng-template&gt;</pre>
+  &lt;li *ngxRange="let value from repeat"&gt;Item #{{value}}&lt;/li&gt;
+&lt;/ng-template&gt;</pre>
 
   <ul>
     <ng-template ngxRange let-value [ngxRangeFrom]="0" [ngxRangeTo]="20" [ngxRangeBy]="5">
@@ -26,11 +26,23 @@
 
   <h2>Binding</h2>
 
-  <pre>repeat: number = {{repeat}};</pre>
+  <p>
+    Start
+    <mat-slider thumbLabel tickInterval="1" min="0" max="20" [(ngModel)]="start"></mat-slider>
+    {{start}}
+  </p>
+  <p>
+    End
+    <mat-slider thumbLabel tickInterval="1" min="0" max="20" [(ngModel)]="end"></mat-slider>
+    {{end}}
+  </p>
+  <p>
+    Step
+    <mat-slider thumbLabel tickInterval="1" min="1" max="10" [(ngModel)]="step"></mat-slider>
+    {{step}}
+  </p>
+
   <ul>
-    <li *ngxRange="let value from 0 to repeat">Item #{{value}}</li>
+    <li *ngxRange="let value from start to end by step">Item #{{value}}</li>
   </ul>
-  <button mat-mini-fab color="primary" (click)="more()">
-    <mat-icon>add</mat-icon>
-  </button>
 </main>
