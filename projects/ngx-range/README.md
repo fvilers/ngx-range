@@ -1,24 +1,62 @@
-# NgxRange
+# ngx-range
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
+An Angular structural directive to enumerate over a range of numbers
 
-## Code scaffolding
+## Installation
 
-Run `ng generate component component-name --project ngx-range` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-range`.
-> Note: Don't forget to add `--project ngx-range` or else it will be added to the default project in your `angular.json` file. 
+Add the package to your application.
 
-## Build
+```
+npm install --save ngx-range
+```
 
-Run `ng build ngx-range` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Demo
 
-## Publishing
+https://stackblitz.com/edit/ngx-range-demo
 
-After building your library with `ng build ngx-range`, go to the dist folder `cd dist/ngx-range` and run `npm publish`.
+## Getting started
 
-## Running unit tests
+Import the range module to your application module.
 
-Run `ng test ngx-range` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { NgxRangeModule } from 'ngx-range';
 
-## Further help
+import { AppComponent } from './app.component';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    NgxRangeModule
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+## Using the directive
+
+Add the directive to iterate over a set of numbers. There are 3 properties you can use to control the iteration:
+
+- from: the starting number, inclusive
+- to: the ending number, exclusive
+- by: the incremental step value, defaults to 1
+
+For example, the following template
+
+```
+<ul>
+  <li *ngxRange="let value from 0 to 20 by 5">
+    Item #{{value}}
+  </li>
+</ul>
+```
+
+will output
+
+- Item #0
+- Item #5
+- Item #10
+- Item #15
