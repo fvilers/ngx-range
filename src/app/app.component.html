@@ -4,25 +4,32 @@
 
 <main>
   <h1>Using <code>ngx-range</code></h1>
+  <h2>Microsyntax</h2>
 
-  <pre>repeat: number = {{repeat}};</pre>
-
-  <pre ngNonBindable>&lt;li *ngxRange="let index from 1 to repeat by 2"&gt;Item #{{index}}&lt;/li&gt;</pre>
+  <pre ngNonBindable>&lt;li *ngxRange="let value from 0 to 20 by 5"&gt;Item #{{value}}&lt;/li&gt;</pre>
 
   <ul>
-    <li *ngxRange="let index from 1 to repeat by 2">Item #{{index}}</li>
+    <li *ngxRange="let value from 0 to 20 by 5">Item #{{value}}</li>
   </ul>
 
-  <pre ngNonBindable>&lt;ng-template ngxRange let-index [ngxRangeFrom]="0" [ngxRangeTo]="repeat"&gt;
-  &lt;li *ngxRange="let index from repeat"&gt;Item #{{index}}&lt;/li&gt;
-&lt;/ng-template&gt;</pre>
+  <h2><code>ng-template</code></h2>
+
+  <pre ngNonBindable>&lt;ng-template ngxRange let-value [ngxRangeFrom]="0" [ngxRangeTo]="repeat"&gt;
+    &lt;li *ngxRange="let value from repeat"&gt;Item #{{value}}&lt;/li&gt;
+    &lt;/ng-template&gt;</pre>
 
   <ul>
-    <ng-template ngxRange let-index [ngxRangeFrom]="0" [ngxRangeTo]="repeat" [ngxRangeBy]="1">
-      <li>Item #{{index}}</li>
+    <ng-template ngxRange let-value [ngxRangeFrom]="0" [ngxRangeTo]="20" [ngxRangeBy]="5">
+      <li>Item #{{value}}</li>
     </ng-template>
   </ul>
 
+  <h2>Binding</h2>
+
+  <pre>repeat: number = {{repeat}};</pre>
+  <ul>
+    <li *ngxRange="let value from 0 to repeat">Item #{{value}}</li>
+  </ul>
   <button mat-mini-fab color="primary" (click)="more()">
     <mat-icon>add</mat-icon>
   </button>
