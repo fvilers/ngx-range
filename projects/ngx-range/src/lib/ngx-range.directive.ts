@@ -7,6 +7,10 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 
+export class NgxRangeDirectiveContext {
+  constructor(public readonly $implicit: number) {}
+}
+
 @Directive({
   selector: '[ngxRange]',
 })
@@ -21,7 +25,7 @@ export class NgxRangeDirective implements OnChanges {
   ngxRangeBy: number = 1;
 
   constructor(
-    private templateRef: TemplateRef<any>,
+    private templateRef: TemplateRef<NgxRangeDirectiveContext>,
     private viewContainer: ViewContainerRef
   ) {}
 
@@ -29,14 +33,18 @@ export class NgxRangeDirective implements OnChanges {
     if (changes.ngxRangeFrom || changes.ngxRangeTo || changes.ngxRangeBy) {
       this.viewContainer.clear();
 
+      let index = 0;
+
       for (
         let i = this.ngxRangeFrom;
         i < this.ngxRangeTo;
         i += this.ngxRangeBy
       ) {
-        this.viewContainer.createEmbeddedView(this.templateRef, {
-          $implicit: i,
-        });
+        this.viewContainer.createEmbeddedView(
+          this.templateRef,
+          new NgxRangeDirectiveContext(i),
+          index++
+        );
       }
     }
   }
