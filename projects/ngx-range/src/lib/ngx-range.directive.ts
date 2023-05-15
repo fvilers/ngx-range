@@ -30,7 +30,11 @@ export class NgxRangeDirective implements OnChanges {
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.ngxRangeFrom || changes.ngxRangeTo || changes.ngxRangeBy) {
+    if (
+      changes['ngxRangeFrom'] ||
+      changes['ngxRangeTo'] ||
+      changes['ngxRangeBy']
+    ) {
       this.viewContainer.clear();
 
       let index = 0;

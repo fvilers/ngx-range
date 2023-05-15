@@ -10,6 +10,11 @@ Add the package to your application.
 npm install --save ngx-range
 ```
 
+## Versions
+
+- Angular 11: 1.1.0
+- Angular 15: 5.0.0
+
 ## Demo
 
 https://stackblitz.com/edit/ngx-range-demo

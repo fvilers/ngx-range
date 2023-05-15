@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/fvilers/ngx-range/projects/ngx-range#readme",
   "peerDependencies": {
-    "@angular/common": "^11.0.4",
-    "@angular/core": "^11.0.4"
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   }
 }
