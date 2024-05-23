@@ -78,7 +78,7 @@
             "inlineStyleLanguage": "css",
             "main": "src/main.ts",
             "outputPath": "dist/ngx-range-demo",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js"],
             "scripts": [],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -112,7 +112,7 @@
             "inlineStyleLanguage": "css",
             "karmaConfig": "karma.conf.js",
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["zone.js", "zone.js/testing"],
             "scripts": [],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
