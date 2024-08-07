@@ -16,6 +16,7 @@ npm install --save ngx-range
 - Angular 15: 5.0.0
 - Angular 16: 6.0.0
 - Angular 17: 7.0.0
+- Angular 18: 8.0.0
 
 ## Demo
 
