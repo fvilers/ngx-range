@@ -13,6 +13,7 @@ export class NgxRangeDirectiveContext {
 
 @Directive({
   selector: '[ngxRange]',
+  standalone: false,
 })
 export class NgxRangeDirective implements OnChanges {
   @Input()
