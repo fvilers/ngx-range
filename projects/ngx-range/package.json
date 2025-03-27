@@ -1,6 +1,6 @@
 {
   "name": "ngx-range",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "An Angular structural directive to enumerate over a range of numbers",
   "repository": {
     "type": "git",
